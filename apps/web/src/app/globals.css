@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --surface: #f5f8ff;
+  --surface-strong: #ffffff;
+  --foreground: #020617;
+  --muted: #475569;
+  --accent: #38bdf8;
+  --accent-strong: #2563eb;
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-surface: rgba(255, 255, 255, 0.74);
+}
+
+.dark {
+  --surface: #010212;
+  --surface-strong: #030712;
+  --foreground: #e2f2ff;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-strong: #2563eb;
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-surface: rgba(12, 21, 38, 0.72);
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-border: var(--glass-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-surface text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "ss03";
+    min-height: 100vh;
+    background-image: radial-gradient(circle at top left, rgba(102, 191, 255, 0.16), transparent 40%),
+      radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 45%),
+      linear-gradient(180deg, rgba(4, 8, 20, 0.4), transparent 60%);
+    background-color: var(--surface);
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.35);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.45);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
